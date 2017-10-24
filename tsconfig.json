@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "sourceMap": false,
+      "declaration": false,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "target": "es2017",
+      "lib": [
+        "es2016",
+        "dom",
+        "esnext"
+      ],
+      "module": "es2015",
+      "baseUrl": "",
+      "types": []
+    }
+  }
+  

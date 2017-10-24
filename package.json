@@ -1,0 +1,14 @@
+{
+  "name": "sinergija-asynchrony",
+  "version": "1.0.0",
+  "description": "Asynchrony demo for the sinergija'17 presentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wekoslav Stefanovski",
+  "license": "ISC",
+  "dependencies": {
+    "rxjs": "^5.5.1"
+  }
+}
