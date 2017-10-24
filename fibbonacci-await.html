@@ -20,22 +20,26 @@
         document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("start").addEventListener("click", () => {
                 global = 0;
-                fibbonaci(32);
+                fibbonaci(25);
             })
         })
 
         let global = 0;
 
-        function fibbonaci(n) {
+        let yield = function () {
+            return new Promise(r => setTimeout(() => r()));
+        }
+
+        async function fibbonaci(n) {
             global++;
             document.getElementById("result").textContent = global;
+            await yield();
             if (n === 0) {
                 return 1;
             }
             if (n === 1) {
                 return 1;
             }
-
             return fibbonaci(n - 1) + fibbonaci(n - 2);
         }
     </script>
