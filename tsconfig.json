@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
       "sourceMap": false,
+      "noEmitOnError": false,
       "declaration": false,
       "moduleResolution": "node",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "target": "es2017",
+      "target": "esnext",
       "lib": [
         "es2016",
         "dom",
@@ -13,7 +14,8 @@
       ],
       "module": "es2015",
       "baseUrl": "",
-      "types": []
+      "types": [],
+      "outDir": "./dist"
     }
   }
   
