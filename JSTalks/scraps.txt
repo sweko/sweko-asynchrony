@@ -1,25 +1,25 @@
 ==== set-timeout-0 =====
-console.log("prvi");
-console.log("drugi");
-console.log("treci");
-console.log("cetvrti");
+console.log("Един");
+console.log("Два");
+console.log("Три");
+console.log("Четири");
 
 ==== set-timeout-1 =====
-var names = ["prvi", "drugi", "treci", "cetvrti"];
+var names = ["Един", "Два", "Три", "Четири"];
 names.forEach(name => console.log(name));
 
 ==== set-timeout-2 =====
-console.log("prvi");
+console.log("Един");
 setTimeout(function() {
-    console.log("drugi");
+    console.log("Два");
     setTimeout(function() {
         setTimeout(function() {
             setTimeout(function() {
-                console.log("peti");
+                console.log("Пет");
             }, 1000);
-            console.log("cetvrti");
+            console.log("Четири");
         }, 1000);
-        console.log("treci");
+        console.log("Три");
     }, 1000);
 }, 1000);
 
@@ -28,14 +28,14 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(()=>resolve(), ms));
 }
 
-console.log("prvi");
+console.log("Един");
 
 delay(1000)
-    .then(() => console.log("drugi"))
+    .then(() => console.log("Два"))
     .then(() => delay(1000))
-    .then(() => console.log("treci"))
+    .then(() => console.log("Три"))
     .then(() => delay(1000))
-    .then(() => console.log("cetvrti"))
+    .then(() => console.log("Четири"))
     .then(() => delay(1000))
     .then(() => console.log("peti"))
 ==== set-timeout-3 =====
@@ -43,19 +43,19 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(()=>resolve(), ms));
 }
 
-async function prviDrugi(){
-    console.log("prvi");
+async function edinDva(){
+    console.log("Един");
     await delay(1000);
-    console.log("drugi");
+    console.log("Два");
     await delay(1000);
-    console.log("treci");
+    console.log("Три");
     await delay(1000);
-    console.log("cetvrti");
+    console.log("Четири");
     await delay(1000);
     console.log("peti");
 }
 
-prviDrugi();
+edinDva();
 
 
 ==== layered-cb =====
