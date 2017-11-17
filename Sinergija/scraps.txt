@@ -1,0 +1,89 @@
+==== set-timeout-0 =====
+console.log("prvi");
+console.log("drugi");
+console.log("treci");
+console.log("cetvrti");
+
+==== set-timeout-1 =====
+var names = ["prvi", "drugi", "treci", "cetvrti"];
+names.forEach(name => console.log(name));
+
+==== set-timeout-2 =====
+console.log("prvi");
+setTimeout(function() {
+    console.log("drugi");
+    setTimeout(function() {
+        setTimeout(function() {
+            setTimeout(function() {
+                console.log("peti");
+            }, 1000);
+            console.log("cetvrti");
+        }, 1000);
+        console.log("treci");
+    }, 1000);
+}, 1000);
+
+==== set-timeout-3 =====
+function delay(ms) {
+    return new Promise(resolve => setTimeout(()=>resolve(), ms));
+}
+
+console.log("prvi");
+
+delay(1000)
+    .then(() => console.log("drugi"))
+    .then(() => delay(1000))
+    .then(() => console.log("treci"))
+    .then(() => delay(1000))
+    .then(() => console.log("cetvrti"))
+    .then(() => delay(1000))
+    .then(() => console.log("peti"))
+==== set-timeout-3 =====
+function delay(ms) {
+    return new Promise(resolve => setTimeout(()=>resolve(), ms));
+}
+
+async function prviDrugi(){
+    console.log("prvi");
+    await delay(1000);
+    console.log("drugi");
+    await delay(1000);
+    console.log("treci");
+    await delay(1000);
+    console.log("cetvrti");
+    await delay(1000);
+    console.log("peti");
+}
+
+prviDrugi();
+
+
+==== layered-cb =====
+
+class InnerCbLayer {
+    getInnerValue() {
+        return "inner";
+    }
+}
+
+class MidCbLayer {
+    constructor(public inner: InnerCbLayer) { }
+
+    getMidValue() {
+        return "middle-" + this.inner.getInnerValue();
+    }
+}
+
+class OuterCbLayer {
+    constructor(public middle: MidCbLayer) { }
+
+    getOuterValue() {
+        return "outer-" + this.middle.getMidValue();
+    }
+}
+
+let innerCb = new InnerCbLayer();
+let midCb = new MidCbLayer(inner);
+let outerCb = new OuterCbLayer(mid);
+
+console.log(outerCb.getOuterValue());

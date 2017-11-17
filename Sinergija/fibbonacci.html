@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fibonnacci Demo 1</title>
+</head>
+
+<body>
+    <button id="start" class="button">Start</button>
+    <style>
+        .button:hover {
+            color: red;
+        }
+    </style>
+    <div id="result"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("start").addEventListener("click", () => {
+                global = 0;
+                fibbonaci(32);
+            })
+        })
+
+        let global = 0;
+
+        function fibbonaci(n) {
+            global++;
+            document.getElementById("result").textContent = global;
+            if (n === 0) {
+                return 1;
+            }
+            if (n === 1) {
+                return 1;
+            }
+
+            return fibbonaci(n - 1) + fibbonaci(n - 2);
+        }
+    </script>
+</body>
+
+</html>
